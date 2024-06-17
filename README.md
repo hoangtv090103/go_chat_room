@@ -27,12 +27,11 @@ This application requires the following Go libraries:
     ```
 4. Download the required Go dependencies:
     ```sh
-        Copy code
-        go mod download
+    Copy code
+    go mod download
     ```
 5. Build the application:
     ```sh
-    Copy code
     go build
     ```
 6. Run the application:
