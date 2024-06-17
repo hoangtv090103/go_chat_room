@@ -10,10 +10,10 @@ type Client struct {
 	// socket is the web socker for this client
 	socket *websocket.Conn
 
-	// receive is a channel to receive messages from ther clients
+	// receive is a channel to receive messages from other clients
 	receive chan []byte
 
-	// rom is the room this client is chatting in
+	// room is the room this client is chatting in
 	room *Room
 }
 

@@ -7,6 +7,8 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// chan: channel is a way to communicate between
+
 type Room struct {
 	// Clients holds all current clients in this room
 	clients map[*Client]bool
@@ -34,12 +36,12 @@ func NewRoom() *Room {
 func (r *Room) Run() {
 	for {
 		select {
-		case client := <-r.join:
+		case client := <-r.join: // If a client joins the room
 			r.clients[client] = true
-		case client := <-r.leave:
+		case client := <-r.leave: // If a client leaves the room
 			delete(r.clients, client)
 			close(client.receive)
-		case msg := <-r.forward:
+		case msg := <-r.forward: // If a message is received
 			for client := range r.clients {
 				client.receive <- msg
 			}
@@ -70,7 +72,7 @@ func (r *Room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 	r.join <- client
 
-	defer func() {r.leave <- client}()
+	defer func() { r.leave <- client }()
 	go client.Write()
 	client.Read()
 }

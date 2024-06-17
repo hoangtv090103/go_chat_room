@@ -1,13 +1,14 @@
 # Chat Room Application
 
 This is a simple chat room application built in Go. It uses websockets to provide real-time communication between the server and the clients.
+[Watch the video](https://www.youtube.com/watch?v=y036l6pvVEs)
 
 ## How It Works
 
 The application is structured around the concept of a Room, which is a chat room where clients can join, leave, and send messages. Each Client represents a user connected to the room. Messages sent by a client are forwarded to all other clients in the room.
 
 The application uses the Gorilla Websocket library for handling websocket connections.
-
+![alt text](image.png)
 ## Required Libraries
 
 This application requires the following Go libraries:
@@ -20,7 +21,7 @@ This application requires the following Go libraries:
 2. Clone this repository to your local machine:
    ```sh
    git clone <repository-url>
-
+   ``
 3. Navigate to the project directory:
     ```sh
     cd <project-directory>
